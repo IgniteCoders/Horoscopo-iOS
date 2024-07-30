@@ -51,7 +51,7 @@
                                             <outlet property="datesLabel" destination="4YR-sE-DhY" id="QVa-F4-t7w"/>
                                             <outlet property="logoImageView" destination="v7j-gy-GxV" id="9dG-NM-KYF"/>
                                             <outlet property="nameLabel" destination="YGB-cZ-zdC" id="hPv-to-5pt"/>
-                                            <segue destination="pLN-jW-N92" kind="show" id="LHT-Go-4bT"/>
+                                            <segue destination="pLN-jW-N92" kind="show" identifier="navigateToDetail" id="LHT-Go-4bT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

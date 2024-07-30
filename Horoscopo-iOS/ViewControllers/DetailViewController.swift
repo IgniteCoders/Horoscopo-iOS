@@ -11,15 +11,23 @@ class DetailViewController: UIViewController {
 
     
     @IBOutlet weak var logoImageView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var datesLabel: UILabel!
+    
+    
+    var horoscope: Horoscope? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Este if permite eliminar el opcional y asignarlo en una nueva variable
+        if let horoscope = horoscope {
+            nameLabel.text = horoscope.name
+            logoImageView.image = horoscope.logo
+            datesLabel.text = horoscope.dates
+        }
     }
     
 
