@@ -14,8 +14,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var datesLabel: UILabel!
     
+    @IBOutlet weak var favoriteButtonItem: UIBarButtonItem!
+    
     
     var horoscope: Horoscope? = nil
+    var isFavorite: Bool = false
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +32,30 @@ class DetailViewController: UIViewController {
             nameLabel.text = horoscope.name
             logoImageView.image = horoscope.logo
             datesLabel.text = horoscope.dates
+            
+            isFavorite = defaults.string(forKey: "FAVORITE_HOROSCOPE") == horoscope.id
+            setFavoriteIcon()
         }
     }
     
-
+    @IBAction func setFavorite(_ sender: Any) {
+        if isFavorite {
+            defaults.removeObject(forKey: "FAVORITE_HOROSCOPE")
+        } else {
+            defaults.setValue(horoscope?.id, forKey: "FAVORITE_HOROSCOPE")
+        }
+        isFavorite = !isFavorite
+        setFavoriteIcon()
+    }
+    
+    func setFavoriteIcon() {
+        if isFavorite {
+            favoriteButtonItem.image = UIImage(systemName: "heart.fill")
+        } else {
+            favoriteButtonItem.image = UIImage(systemName: "heart")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
