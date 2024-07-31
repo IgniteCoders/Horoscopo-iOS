@@ -115,6 +115,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d7p-jb-74J">
+                                                <rect key="frame" x="8" y="94" width="377" height="364"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="zoW-bw-ERc">
+                                                <rect key="frame" x="186" y="266" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -153,7 +165,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datesLabel" destination="y6C-R4-sgg" id="MG9-XQ-7Eg"/>
+                        <outlet property="descriptionTextView" destination="d7p-jb-74J" id="afY-YW-ZDB"/>
                         <outlet property="favoriteButtonItem" destination="p4f-jz-o1z" id="U9V-3a-wWf"/>
+                        <outlet property="loading" destination="zoW-bw-ERc" id="GZX-h8-7cm"/>
                         <outlet property="logoImageView" destination="FZW-6Z-PRd" id="nfI-sH-yTb"/>
                         <outlet property="nameLabel" destination="K5R-TO-QNy" id="B7H-ir-XA7"/>
                     </connections>
@@ -185,6 +199,9 @@
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

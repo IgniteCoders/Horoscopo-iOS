@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var datesLabel: UILabel!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBOutlet weak var favoriteButtonItem: UIBarButtonItem!
     
@@ -35,6 +37,8 @@ class DetailViewController: UIViewController {
             
             isFavorite = defaults.string(forKey: "FAVORITE_HOROSCOPE") == horoscope.id
             setFavoriteIcon()
+            
+            getHoroscopeLuck()
         }
     }
     
@@ -53,6 +57,21 @@ class DetailViewController: UIViewController {
             favoriteButtonItem.image = UIImage(systemName: "heart.fill")
         } else {
             favoriteButtonItem.image = UIImage(systemName: "heart")
+        }
+    }
+    
+    func getHoroscopeLuck() {
+        loading.isHidden = false
+        Task {
+            do {
+                let luck = try await HoroscopeProvider.getHoroscopeLuck(horoscopeId: horoscope!.id)
+                
+                descriptionTextView.text = luck
+                
+                loading.isHidden = true
+            } catch {
+                print(error)
+            }
         }
     }
     
